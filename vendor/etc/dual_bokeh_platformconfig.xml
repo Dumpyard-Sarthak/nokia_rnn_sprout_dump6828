@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+    <GlobalInitInfo>
+        <mainCameraW>1440</mainCameraW> <!-- 输入主图分辨率 -->
+        <mainCameraH>1080</mainCameraH>
+        <auxCameraW>1440</auxCameraW> <!-- 输入副图分辨率 -->
+        <auxCameraH>1080</auxCameraH>
+        <mainCameraID>0</mainCameraID> <!-- 双目主摄模组送显对应的cameraID -->
+        <auxCameraID>2</auxCameraID> <!-- 双目第副摄模组送显对应的cameraID -->
+        <calibDataLength11>1128</calibDataLength11> <!-- 标定数据的大小 -->
+        <cameraDirection>1</cameraDirection> <!-- 主副摄相机的相对位置 [0,1,2,3]-->
+        <logEnable>0</logEnable>  <!-- log打印开关 -->
+        <modelDir>/vendor/etc</modelDir>   <!-- 模型路径 -->
+        <localBinDir>/data/vendor/dualcam</localBinDir>  <!-- 标定local_rt.bin文件路径 -->
+    </GlobalInitInfo>
+
+    <PreviewInitInfo>
+        <BokehW>960</BokehW> <!-- [1440,1080], [1408,1056], [1280,960], [800, 600] -->
+        <BokehH>720</BokehH>
+        <DepthW>200</DepthW> <!-- [256,192], [200,150], [160,120] -->
+        <DepthH>150</DepthH>
+        <portraitMaskEnable>1</portraitMaskEnable> <!-- 打开人像mask功能 0: disable 1: enable -->
+        <shift_z_scale_rt>1.1</shift_z_scale_rt> <!-- 1.1正常标定  1.5斜对角标定 -->
+        <previewLogEable>0</previewLogEable> <!-- 打开预览log 0: disable 1: enable -->
+    </PreviewInitInfo>
+
+    <PreviewMainThreadInfo>
+        <plat>1</plat>  <!-- 0: MTK, 1: qucomm -->
+        <cpuEnable>0</cpuEnable>  <!-- 0: GPU加速, 1: CPU加速 -->
+        <aperture>3</aperture>  <!-- 虚化强度： 0~8 -->
+        <blur_bar>1</blur_bar> <!-- 打开虚化进度条 0: disable 1: enable -->
+        <previewEnable>1</previewEnable> <!-- 打开实时预览 0: disable 1: enable -->
+    </PreviewMainThreadInfo>
+
+    <PreviewViceThreadInfo>
+        <faceCntThresh>14</faceCntThresh>  <!-- 检测到人脸的最多个数，默认14 -->
+        <cameraDirection>1</cameraDirection>  <!-- 主副摄相机的相对位置 [0,1,2,3]-->
+        <remapAble>0</remapAble>  <!-- 0 remap_pre  1 remap_aft-->
+        <frameFusionCnt>3</frameFusionCnt>  <!-- 帧融合参数： 2 或 3-->
+        <apt>0.22</apt>  <!-- 取值范围0.1~0.5，默认0.2-->
+        <radiusFilter>7</radiusFilter>  <!-- 取值范围1~10-->
+        <selfCalib>0</selfCalib>  <!-- 打开自校正 0: disable 1: enable ,默认0-->
+        <errorX>2</errorX>  <!-- x方向最大偏差，默认为2 -->
+        <errorY>25</errorY>  <!-- y方向最大偏差，默认为25 -->
+    </PreviewViceThreadInfo>
+
+    <CaptureDepthInfo>
+        <DepthW>800</DepthW> <!-- [1024,768], [960,720], [800,600] [640,480] [512,384] [480,360]-->
+        <DepthH>600</DepthH>
+        <OfDepthW>640</OfDepthW> <!-- [1024,768], [960,720], [800,600] [640,480] [512,384] [480,360]-->
+        <OfDepthH>480</OfDepthH>
+        <cameraDirection>1</cameraDirection> <!-- 主副摄相机的相对位置 [0,1,2,3]-->
+        <rectifyBinVer>127</rectifyBinVer>  <!-- 标定local_rt.bin文件路径 -->
+        <dumpDispEnable>0</dumpDispEnable> <!-- dump disp使能 0: disable 1: enable -->
+        <gpuMode>0</gpuMode> <!-- gpu Mode 0: cpu, 1: vulkan, 2: opencl, 3: opengl -->
+        <modelType>0</modelType> <!--  -->
+        <logEn>0</logEn>  <!--  -->
+    </CaptureDepthInfo>
+
+    <CaptureDepthAlgoInfo>
+        <ColorAdjustMode>0</ColorAdjustMode> <!-- 颜色调整模式 0: disable 1: adjust main 2: adjust sub -->
+        <LumaAdjustMode>2</LumaAdjustMode> <!-- 亮度调整模式 0: disable 1: adjust main 2: adjust sub -->
+        <gaussBlurMainEnable>1</gaussBlurMainEnable> <!-- 主图高斯模糊使能 0: disable 1: enable -->
+        <gaussBlurSubEnable>0</gaussBlurSubEnable> <!-- 副图高斯使能 0: disable 1: enable -->
+        <portraitEnable>1</portraitEnable> <!-- 人像mask使能 0: disable 1: enable -->
+        <handEnable>1</handEnable> <!-- 手指优化使能 0: disable 1: enable -->
+        <dtfEnable>1</dtfEnable> <!-- dt filter 使能 0: disable 1: enable -->
+        <zoomScaleFlag>0</zoomScaleFlag> <!-- 设置zoomScale -->
+        <zoomValueFlag>0</zoomValueFlag> <!-- 设置zoomValue -->
+        <calibReverseFlag>0</calibReverseFlag> <!-- 反向标定标志 -->
+        <dualWarpEnable>0</dualWarpEnable> <!-- 校正主副图 0: warp sub 1: warp main and sub -->
+        <selfFaceDetect>0</selfFaceDetect> <!-- 人脸检测使能 0: disable 1: enable -->
+        <humanDetect>1</humanDetect> <!-- 行人检测使能 0: disable 1: enable -->
+        <sodEnable>1</sodEnable> <!-- sod使能 0: disable 1: enable -->
+        <dispShiftEnable>0</dispShiftEnable> <!-- 视差偏移使能 0: disable 1: enable -->
+
+        <rectifyQuality>3.0</rectifyQuality> <!--  校正精度 -->
+        <shiftZscale>1.0</shiftZscale> <!-- shiftZ 1.0-1.5 -->
+        <boxSize>240</boxSize> <!-- box尺寸 -->
+        <boxOffset>150</boxOffset> <!-- box偏移值 -->
+
+        <maxDisp>48</maxDisp> <!-- 最大视差 24-48 -->
+        <sparseMode>4</sparseMode> <!-- sparse工作模式 0-15 -->
+        <colorThHigh>20</colorThHigh> <!-- high 颜色阈值 0-255 -->
+        <colorThLow>6</colorThLow> <!-- low 颜色阈值 0-255 -->
+        <tsoTh>15</tsoTh> <!-- tso 颜色阈值 0-255 -->
+        <minCostTh>665</minCostTh> <!-- 最小cost阈值 0-1024 -->
+        <confTh>16</confTh> <!-- 置信度阈值 0-128 -->
+        <weightLut>1</weightLut> <!-- 权值表 0-1 -->
+
+        <matchWeight>10</matchWeight> <!-- match权值 -->
+        <iterMode>1</iterMode> <!-- 迭代模式 0-1 -->
+        <sorIter>8</sorIter> <!-- sor 迭代次数 5-10 -->
+
+        <faceCnt>4</faceCnt> <!-- 人脸个数 -->
+        <dispOffsetRatio>0.1</dispOffsetRatio> <!-- 视差补偿值比率 -->
+        <dispOffsetTh>1.2</dispOffsetTh> <!-- 视差补偿值阈值 -->
+        <highRatio>0.4</highRatio> <!-- 人像mask内 视差比率 -->
+        <highThresh>6</highThresh> <!-- 人像mask内 视差阈值 -->
+        <lowRatio>0.3</lowRatio> <!-- 人像mask外 视差比率 -->
+        <lowThresh>6</lowThresh> <!-- 人像mask外 视差阈值 -->
+        <faceBlockRatio>0.5</faceBlockRatio> <!-- 人脸框外扩的比率 -->
+        <faceOffset>0</faceOffset> <!-- 人脸框y方向偏移 -->
+        <portraitAreaThLow>0.06</portraitAreaThLow> <!-- 人像mask最小块尺寸 -->
+        <portraitAreaThHigh>0.1</portraitAreaThHigh> <!-- 人像mask最小块尺寸 -->
+        <portraitDispTh>16</portraitDispTh> <!-- 人像视差阈值 -->
+    </CaptureDepthAlgoInfo>
+
+    <BlurMainInfo>
+        <bokehsize>1200</bokehsize> <!-- 用于虚化的图像的尺寸 -->
+        <lightSpotStrength>0.2</lightSpotStrength><!-- 光斑增强系数,取值范围0.0f~1.0f -->
+        <blur_bar>1</blur_bar><!-- 是否打开aperture进度条，1：打开aperture进度条；0：关闭aperture进度条 -->
+        <aperture>5</aperture><!-- 虚化强度，取值范围0~8 -->
+        <blurType>1</blurType><!-- 虚化光斑类型，默认为1 circle -->
+        <apt>0.2</apt><!-- 景深大小，取值范围0.1f~0.5f -->
+        <backAptRate>1</backAptRate><!-- 后景深系数，取值范围1~3 -->
+        <foreAptRate>3</foreAptRate><!-- 前景深系数，取值范围1~3 -->
+        <backBlurRate>0.14</backBlurRate><!-- 后景虚化模糊程度系数，取值范围0~1 -->
+        <foreBlurRate>0.12</foreBlurRate><!-- 前景虚化模糊程度系数，取值范围0~1 -->
+        <radiusFilterSize>3</radiusFilterSize><!-- 虚化半径图平滑滤波参数 -->
+        <radiusFilterSigma>3</radiusFilterSigma><!-- 虚化半径图平滑参数sigma -->
+        <portraitEnable>1</portraitEnable><!-- 0：不使用人像；1：使用人像 -->
+        <focusRange>24</focusRange> <!-- 非人像场景对焦点的取值半径 -->
+        <farFocusBlurEnhanceEnable>0</farFocusBlurEnhanceEnable><!--主体较远时，0：虚化不增强，1：虚化增强  -->
+        <gpuEnable>1</gpuEnable><!-- 0：不使用gpu加速；1：使用gpu加速 -->
+        <isoThresh>1</isoThresh><!--iso阈值/10 [0, 255] -->
+    </BlurMainInfo>
+</Config>

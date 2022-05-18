@@ -1,0 +1,14 @@
+# full_T99653-user 12 SP1A.210812.016 00WW_2_230 release-keys
+- manufacturer: 
+- platform: mt6765
+- codename: RNN_sprout
+- flavor: full_T99653-user
+- release: 12
+- id: SP1A.210812.016
+- incremental: 00WW_2_230
+- tags: release-keys
+- fingerprint: Nokia/Ronin_00WW/RNN_sprout:12/SP1A.210812.016/00WW_2_230:user/release-keys
+- is_ab: true
+- brand: Nokia
+- branch: full_T99653-user-12-SP1A.210812.016-00WW_2_230-release-keys
+- repo: nokia_rnn_sprout_dump6828
